@@ -1,0 +1,24 @@
+
+# Virtual Environment related
+*venv
+
+# IDE related
+*vscode
+
+# Interpreter related
+__pycache__
+
+# Distribution / Packaging
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+parts/
+sdist/
+var/
+*.egg-info/
+*.egg
+
+#Testdata
+Testdata/
