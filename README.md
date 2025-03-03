@@ -30,6 +30,29 @@ $ python -m src.ideal_functions_application
 
 > Check `curl localhost:8080/`
 
+## Available APIs
+
+**Data Analysis**
+
+`/v1/ideal-functions/select`
+
+`/v1/test-data/map`
+
+**Visualizations**
+
+`/v1/visualizations/all`
+
+`/v1/visualizations/{visualization_name}`
+
+**Data**
+
+`/v1/data/load-data`
+
+`/v1/data/database-view`
+
+`/v1/data/test-mapping-results`
+
+
 ## Preparing Additional Data
 
 If you need to test with custom data, follow these steps:
