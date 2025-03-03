@@ -20,5 +20,3 @@ var/
 *.egg-info/
 *.egg
 
-#Testdata
-Testdata/
