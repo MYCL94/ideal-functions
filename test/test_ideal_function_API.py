@@ -4,7 +4,7 @@ from fastapi.testclient import TestClient
 from starlette.status import HTTP_200_OK
 from src.application.DataManager import DatasetType
 from src.application.Visualizer import VisualizationName
-from application.rest.ideal_functions_API import app
+from src.application.rest.ideal_functions_API import app
 
 #Constants
 TEST_DATASET_NAME ='Testdata'
