@@ -41,7 +41,7 @@ test = [
 ]
 dev = [
     'ruff==0.7.3',
-    'ideal-function[test]']
+    'ideal-functions[test]']
 
 [tool.pytest.ini_options]
 minversion = '6.0'
@@ -51,8 +51,8 @@ testpaths = [
     'test-module',
 ]
 
-#[project.scripts]
-#application = 'src.application.ideal_function_application:app'
+[project.scripts]
+application = 'src.application.ideal_function_application:app'
 
 [project.urls]
 Homepage = 'github.com'

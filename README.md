@@ -23,7 +23,9 @@ $ cd ideal-functions
 $ python -m venv ./venv
 $ cd .venv/Scripts
 $ activate.bat
-$ (uv) pip install -r pyproject.toml
+$ (uv) pip install -r pyproject.toml --extra dev # for testing
+
+# Run
 $ python -m src.ideal_functions_application
 
 ```
