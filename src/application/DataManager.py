@@ -4,6 +4,8 @@ import pandas as pd
 from sqlalchemy import create_engine, exc
 from enum import Enum
 
+from src.application.CustomError import CustomError
+
 class DatasetType(Enum):
     TRAIN = 'train'
     TEST = 'test'
@@ -51,7 +53,7 @@ class DataManager:
             with self.engine.connect():
                 self.logger.info(f'Test connection to database: {db_path} successful.')
         except exc.SQLAlchemyError as e:
-            raise Exception(f'Failed to connect to database: {db_path}. Error: {e}') from e
+            raise CustomError(f'Failed to connect to database: {db_path}. Error: {e}') from e
 
     def load_data(self, dataset_type: DatasetType) -> pd.DataFrame:
         """
@@ -90,7 +92,7 @@ class DataManager:
         except pd.errors.ParserError as e:
             raise pd.errors.ParserError(f'Error parsing CSV file: {file_path}. Error: {e}') from e
         except exc.SQLAlchemyError as e:
-            raise Exception(f'Database error while loading data to table {table_name}: {e}') from e
+            raise CustomError(f'Database error while loading data to table {table_name}: {e}') from e
 
 
     def read_data_from_table(self, table_name: str) -> pd.DataFrame:
@@ -111,7 +113,7 @@ class DataManager:
             df = pd.read_sql_query(sql_query, self.engine)
             return df
         except exc.SQLAlchemyError as e:
-            raise Exception(f'Database error while reading data from table {table_name}: {e}') from e
+            raise CustomError(f'Database error while reading data from table {table_name}: {e}') from e
 
     
     def save_data(self, table_name: str, data: pd.DataFrame) -> None:
@@ -128,4 +130,4 @@ class DataManager:
         try:
             data.to_sql(table_name, self.engine, if_exists='replace', index=False)
         except exc.SQLAlchemyError as e:
-            raise Exception(f'Database error while saving data to table {table_name}: {e}') from e
+            raise CustomError(f'Database error while saving data to table {table_name}: {e}') from e
