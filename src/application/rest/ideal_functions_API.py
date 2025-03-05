@@ -220,7 +220,7 @@ async def get_database(dataset_type: DatasetType) -> HTMLResponse:
         """
         return HTMLResponse(content=html_content, status_code=200)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f'Error retrieving test mapping results from database: {e}')
+        raise HTTPException(status_code=500, detail=f'Error retrieving data from database: {e}')
 
 @app.get('/v1/data/test-mapping-results', tags=['Data'])
 async def get_test_mapping_results() -> HTMLResponse:
